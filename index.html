@@ -15,11 +15,15 @@
 
     <script type="text/babel">
         class App extends React.Component {
+            state = {
+                name: 'Alex',
+                age: 27
+            }
             render() {
                 return (
                     <div className="app-content">
                         <h1>Hey there!</h1>
-                        <p>{ Math.random() * 10 }</p>
+                        <p>My name is: { this.state.name } and I am { this.state.age } years old.</p>
                     </div>
                 )
             }
