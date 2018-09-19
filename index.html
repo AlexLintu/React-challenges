@@ -16,31 +16,26 @@
     <script type="text/babel">
         class App extends React.Component {
             state = {
-                name: 'Alex',
-                age: 27
+                name: 'Lintu',
+                age: 33
             }
-            handleClick = (event) => {
-                // console.log(event.target);
+            handleChange = (event) => {
                 this.setState({
-                    name: 'Bob',
-                    age: 55
+                    name: event.target.value
                 });
-                console.log(this.state);
             }
-            handleMouseOver = (event) => {
-                console.log(event.target, event.pageX)
-            }
-            handleCopy = (event) => {
-                console.log('Try being original for once!')
+            handleSubmit = (event) => {
+                event.preventDefault();
+                console.log('form submitted', this.state.name)
             }
             render() {
                 return (
                     <div className="app-content">
-                        <h1>Hey there!</h1>
-                        <p>My name is: { this.state.name } and I am { this.state.age } years old.</p>
-                        <button onClick={ this.handleClick }>Click me</button>
-                        <button onMouseOver={ this.handleMouseOver }>Hover me</button>
-                        <p onCopy={ this.handleCopy }>What we think we become</p>
+                        <h1>My name is { this.state.name }</h1>
+                        <form onSubmit={ this.handleSubmit }>
+                            <input type="text" onChange={ this.handleChange }/>
+                            <button>Submit</button>
+                        </form>
                     </div>
                 )
             }
