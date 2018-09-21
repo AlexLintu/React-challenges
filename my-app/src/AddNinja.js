@@ -6,13 +6,13 @@ class AddNinja extends Component {
         age: null,
         belt: null
     }
-    handleChange = (event) => {
+    handleChange = (e) => {
         this.setState({
-            [event.target.id]: event.target.value
+            [e.target.id]: e.target.value
         });
     }
-    handleSubmit = (event) => {
-        event.preventDefault();
+    handleSubmit = (e) => {
+        e.preventDefault();
         console.log(this.state);
     }
     render() {
@@ -20,12 +20,11 @@ class AddNinja extends Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor="name">Name:</label>
-                    <input type="text" id="name" onChange={this.hadleChange} />
+                    <input type="text" id="name" onChange={this.handleChange} />
                     <label htmlFor="name">Age:</label>
-                    <input type="text" id="age" onChange={this.hadleChange} />
+                    <input type="text" id="age" onChange={this.handleChange} />
                     <label htmlFor="name">Belt:</label>
-                    <input type="text" id="belt" onChange={this.hadleChange} />
-
+                    <input type="text" id="belt" onChange={this.handleChange} />
                     <button>Submit</button>
                 </form>
             </div>
