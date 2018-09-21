@@ -4,9 +4,9 @@ import Ninjas from './Ninjas';
 class App extends Component {
   state = {
     ninjas: [
-      {name: 'A', age: 30, belt: 'balck', id: 1},
-      {name: 'B', age: 40, belt: 'green', id: 2},
-      {name: 'C', age: 50, belt: 'pink', id: 3}
+      {name: 'A', age: 20, belt: 'balck', id: 1},
+      {name: 'B', age: 35, belt: 'green', id: 2},
+      {name: 'C', age: 45, belt: 'pink', id: 3}
     ]
   }
   render() {
