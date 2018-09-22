@@ -10,7 +10,7 @@ const Todos = ({todos, deleteTodo}) => {
             )
         })
     ) : (
-        <p className="center">You have no todo's left</p>
+        <p className="center">You have no todo's left! :)</p>
     )
     return (
         <div className="todos collection">
@@ -19,4 +19,4 @@ const Todos = ({todos, deleteTodo}) => {
     )
 }
 
-export default Todos
+export default Todos;
