@@ -9,6 +9,14 @@ class App extends Component {
     displayValue: '0'
   }
 
+  inputDigit(digit) {
+    const { displayValue } = this.state;
+
+    this.setState({
+      displayValue: displayValue === '0' ? String(digit) : displayValue + digit
+    })
+  }
+
   render() {
     const { displayValue } = this.state
 
