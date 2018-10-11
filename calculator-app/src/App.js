@@ -14,7 +14,17 @@ class App extends Component {
 
     this.setState({
       displayValue: displayValue === '0' ? String(digit) : displayValue + digit
-    })
+    });
+  }
+
+  inputDot() {
+    const { displayValue } = this.state;
+
+    if (displayValue.indexOf('.') === -1) {
+      this.setState({
+        displayValue: displayValue + '.'
+      });
+    }
   }
 
   render() {
@@ -32,7 +42,7 @@ class App extends Component {
             </div>
             <div className="digit-keys">
                 <button className="calculator-key key-0" onClick={() => this.inputDigit(0)}>0</button>
-                <button className="calculator-key key-dot">.</button>
+                <button className="calculator-key key-dot" onClick={() => this.inputDot()}>.</button>
                 <button className="calculator-key key-1" onClick={() => this.inputDigit(1)}>1</button>
                 <button className="calculator-key key-2" onClick={() => this.inputDigit(2)}>2</button>
                 <button className="calculator-key key-3" onClick={() => this.inputDigit(3)}>3</button>
