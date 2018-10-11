@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './index.css';
+import './styles.css';
 
 // 1. What state is there?
 // 2. When does it change?
@@ -27,6 +27,12 @@ class App extends Component {
     }
   }
 
+  clearDisplay() {
+    this.setState({
+      displayValue: '0'
+    });
+  }
+
   render() {
     const { displayValue } = this.state
 
@@ -36,7 +42,7 @@ class App extends Component {
         <div className="calculator-keypad">
           <div className="input-keys">
             <div className="function-keys">
-                <button className="calculator-key key-clear">AC</button>
+                <button className="calculator-key key-clear" onClick={() => this.clearDisplay()}>AC</button>
                 <button className="calculator-key key-sign">+</button>
                 <button className="calculator-key key-percent">%</button>
             </div>
