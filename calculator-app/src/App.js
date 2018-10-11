@@ -33,6 +33,14 @@ class App extends Component {
     });
   }
 
+  toggleSign() {
+    const { displayValue } = this.state;
+
+    this.setState({
+      displayValue: displayValue.charAt(0) === '-' ? displayValue.substring(1) : '-' + displayValue
+    });
+  }
+
   render() {
     const { displayValue } = this.state
 
@@ -43,7 +51,7 @@ class App extends Component {
           <div className="input-keys">
             <div className="function-keys">
                 <button className="calculator-key key-clear" onClick={() => this.clearDisplay()}>AC</button>
-                <button className="calculator-key key-sign">+</button>
+                <button className="calculator-key key-sign" onClick={() => this.toggleSign()}>±</button>
                 <button className="calculator-key key-percent">%</button>
             </div>
             <div className="digit-keys">
