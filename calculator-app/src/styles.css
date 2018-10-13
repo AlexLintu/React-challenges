@@ -11,7 +11,7 @@
 .calculator-display {
     grid-column: 1 / span 4;
     grid-row: 1;
-    background-color: black;
+    background-color: rgb(48, 47, 47);
     color: white;
     font-size: 5em;
     font-weight: 100;
