@@ -4,6 +4,18 @@ import './styles.css';
 // 1. What state is there?
 // 2. When does it change?
 
+class AutoShrinkingText extends Component {
+  componentDidUpdate() {
+    const node = this.node;
+    const { offsetWidth } = node;
+    const parentWidth = node.offsetParent.offsetWidth;
+    const scale = offsetWidth / parentWidth;
+  }
+  render() {
+    return <div {...this.props} ref{node => this.node = node}/>
+  }
+}
+
 class App extends Component {
   state = {
     value: null,
@@ -101,7 +113,7 @@ class App extends Component {
 
     return (
         <div className="calculator">
-          <div className="calculator-display">{displayValue}</div>
+          <AutoShrinkingText className="calculator-display">{displayValue}</AutoShrinkingText>
           <button className="calculator-key key-clear" onClick={() => this.clearDisplay()}>C</button>
           <button className="calculator-key key-sign" onClick={() => this.toggleSign()}>±</button>
           <button className="calculator-key key-percent" onClick={() => this.inputPercent()}>%</button>
