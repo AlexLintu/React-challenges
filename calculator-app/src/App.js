@@ -121,10 +121,12 @@ class App extends Component {
         <button className="calculator-key key-0" onClick={() => this.inputDigit(0)}>0</button>
         <button className="calculator-key key-dot" onClick={() => this.inputDot()}>.</button>
         <button className="calculator-key key-equal" onClick={() => this.performOperation('=')}>=</button> 
-        <pre className="test">{JSON.stringify(this.state, null, 2)}</pre>            
+        <pre className="test">{JSON.stringify(this.state, null, 2)}</pre>             
       </div>
     );
   }
 }
+
+// stringify method: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
 
 export default App;
