@@ -6,6 +6,7 @@ import './styles.css';
 
 class App extends Component {
   state = {
+    value: 0,
     displayValue: '0',
     waitingForOperand: false,
     operator: null
@@ -26,9 +27,14 @@ class App extends Component {
   }
 
   inputDot() {
-    const { displayValue } = this.state;
+    const { displayValue, waitingForOperand } = this.state;
 
-    if (displayValue.indexOf('.') === -1) { // indexOf method: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf
+    if (waitingForOperand) {
+      this.setState({
+        displayValue: '.',
+        waitingForOperand: false
+      });
+    } else if (displayValue.indexOf('.') === -1) { // indexOf method: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf
       this.setState({
         displayValue: displayValue + '.',
         waitingForOperand: false
@@ -60,6 +66,22 @@ class App extends Component {
   }
 
   performOperation(operator) {
+    const { displayValue } = this.state;
+    const operations = {
+      '/' : (prevValue, nextValue) => prevValue / nextValue,
+      '*' : (prevValue, nextValue) => prevValue * nextValue,
+      '+' : (prevValue, nextValue) => prevValue + nextValue,
+      '-' : (prevValue, nextValue) => prevValue - nextValue,
+      '=' : (prevValue, nextValue) => nextValue
+    };
+    const prevValue = 
+    const nextValue = parseFloat(displayValue);
+    const computedValue = operations[operator](prevValue, nextValue)
+
+  
+
+    if ()
+
     this.setState({
       waitingForOperand: true,
       operator: operator
