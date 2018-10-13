@@ -5,7 +5,13 @@
 .calculator {
     display: grid;
     grid-template-columns: 80px 80px 80px 80px;
-    grid-template-rows: 120px 80px 80px 80px 80px 80px;
+    grid-template-rows: 120px 80px 80px 80px 80px 80px auto;
+}
+
+.test {
+    grid-column: 1 / span 4;
+    border: 1px dotted grey;
+    padding: 10px 30px;
 }
 
 .calculator-display {

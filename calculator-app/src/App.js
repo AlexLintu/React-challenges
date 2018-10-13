@@ -6,7 +6,7 @@ import './styles.css';
 
 class App extends Component {
   state = {
-    value: 0,
+    value: null,
     displayValue: '0',
     waitingForOperand: false,
     operator: null
@@ -67,22 +67,22 @@ class App extends Component {
 
   performOperation(nextOperator) {
     const { displayValue, operator, value } = this.state;
-    const nextValue = parseFloat(displayValue);
+    const newValue = parseFloat(displayValue);
     const operations = {
-      '/' : (prevValue, nextValue) => prevValue / nextValue,
-      '*' : (prevValue, nextValue) => prevValue * nextValue,
-      '+' : (prevValue, nextValue) => prevValue + nextValue,
-      '-' : (prevValue, nextValue) => prevValue - nextValue,
-      '=' : (prevValue, nextValue) => nextValue
+      '/' : (initialValue, newValue) => initialValue / newValue,
+      '*' : (initialValue, newValue) => initialValue * newValue,
+      '+' : (initialValue, newValue) => initialValue + newValue,
+      '-' : (initialValue, newValue) => initialValue - newValue,
+      '=' : (initialValue, newValue) => newValue
     };
 
     if (value == null) {
       this.setState({
-        value: nextValue
+        value: newValue
       });
     } else if (operator) {
-      const prevValue = value || 0;
-      const computedValue = operations[operator](prevValue, nextValue);
+      const initialValue = value || 0;
+      const computedValue = operations[operator](initialValue, newValue);
 
       this.setState({
         value: computedValue,
@@ -120,7 +120,8 @@ class App extends Component {
         <button className="calculator-key key-add" onClick={() => this.performOperation('+')}>+</button>
         <button className="calculator-key key-0" onClick={() => this.inputDigit(0)}>0</button>
         <button className="calculator-key key-dot" onClick={() => this.inputDot()}>.</button>
-        <button className="calculator-key key-equal" onClick={() => this.performOperation('=')}>=</button>             
+        <button className="calculator-key key-equal" onClick={() => this.performOperation('=')}>=</button> 
+        <pre className="test">{JSON.stringify(this.state, null, 2)}</pre>            
       </div>
     );
   }
