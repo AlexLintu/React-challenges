@@ -20,7 +20,7 @@ class App extends Component {
   inputDot() {
     const { displayValue } = this.state;
 
-    if (displayValue.indexOf('.') === -1) {
+    if (displayValue.indexOf('.') === -1) { // indexOf method: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf
       this.setState({
         displayValue: displayValue + '.'
       });
@@ -38,6 +38,15 @@ class App extends Component {
 
     this.setState({
       displayValue: displayValue.charAt(0) === '-' ? displayValue.substring(1) : '-' + displayValue
+    }); // charAt method: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charAt
+  } // substring method: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring
+
+  inputPercent() {
+    const { displayValue } = this.state;
+    const value = parseFloat(displayValue); // parseFloat method: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat
+
+    this.setState({
+      displayValue: String(value / 100)
     });
   }
 
@@ -49,7 +58,7 @@ class App extends Component {
         <div className="calculator-display">{displayValue}</div>
         <button className="calculator-key key-clear" onClick={() => this.clearDisplay()}>AC</button>
         <button className="calculator-key key-sign" onClick={() => this.toggleSign()}>±</button>
-        <button className="calculator-key key-percent">%</button>
+        <button className="calculator-key key-percent" onClick={() => this.inputPercent()}>%</button>
         <button className="calculator-key key-divide">+</button>
         <button className="calculator-key key-7" onClick={() => this.inputDigit(7)}>7</button>
         <button className="calculator-key key-8" onClick={() => this.inputDigit(8)}>8</button>
