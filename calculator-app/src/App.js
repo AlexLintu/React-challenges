@@ -12,11 +12,17 @@ class App extends Component {
   }
 
   inputDigit(digit) {
-    const { displayValue } = this.state;
-
-    this.setState({
-      displayValue: displayValue === '0' ? String(digit) : displayValue + digit
-    });
+    const { displayValue, waitingForOperand } = this.state;
+    
+    if (waitingForOperand) {
+      this.setState({
+        displayValue: String(digit),
+        waitingForOperand: false
+      });
+    } else {this.setState({
+        displayValue: displayValue === '0' ? String(digit) : displayValue + digit
+      });
+    }
   }
 
   inputDot() {
@@ -24,7 +30,8 @@ class App extends Component {
 
     if (displayValue.indexOf('.') === -1) { // indexOf method: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf
       this.setState({
-        displayValue: displayValue + '.'
+        displayValue: displayValue + '.',
+        waitingForOperand: false
       });
     }
   }
