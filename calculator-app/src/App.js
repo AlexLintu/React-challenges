@@ -6,7 +6,9 @@ import './styles.css';
 
 class App extends Component {
   state = {
-    displayValue: '0'
+    displayValue: '0',
+    waitingForOperand: false,
+    operator: null
   }
 
   inputDigit(digit) {
@@ -52,7 +54,8 @@ class App extends Component {
 
   performOperation(operator) {
     this.setState({
-      waitingForOperand: true
+      waitingForOperand: true,
+      operator: operator
     });
   }
 
