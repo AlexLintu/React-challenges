@@ -5,14 +5,34 @@ import './styles.css';
 // 2. When does it change?
 
 class AutoShrinkingText extends Component {
+  state = {
+    scale: 1
+  }
+
   componentDidUpdate() {
     const node = this.node;
     const { offsetWidth } = node;
     const parentWidth = node.offsetParent.offsetWidth;
     const scale = offsetWidth / parentWidth;
+
+    if (scale > 1) {
+      this.setState({
+        scale: 1 / scale
+      });
+    } else {
+      this.setState({
+        scale: 1
+      });
+    }
   }
   render() {
-    return <div {...this.props} ref{node => this.node = node}/>
+    const { scale } = this.state;
+
+    return (
+      <div {...this.props}
+      style={{ transform: `scale(${scale}, ${scale})` }}
+      ref={node => this.node = node} />
+    )
   }
 }
 
