@@ -65,8 +65,9 @@ class App extends Component {
     });
   }
 
-  performOperation(operator) {
-    const { displayValue } = this.state;
+  performOperation(nextOperator) {
+    const { displayValue, operator, value } = this.state;
+    const nextValue = parseFloat(displayValue);
     const operations = {
       '/' : (prevValue, nextValue) => prevValue / nextValue,
       '*' : (prevValue, nextValue) => prevValue * nextValue,
@@ -74,17 +75,24 @@ class App extends Component {
       '-' : (prevValue, nextValue) => prevValue - nextValue,
       '=' : (prevValue, nextValue) => nextValue
     };
-    const prevValue = 
-    const nextValue = parseFloat(displayValue);
-    const computedValue = operations[operator](prevValue, nextValue)
 
-  
+    if (value == null) {
+      this.setState({
+        value: nextValue
+      });
+    } else if (operator) {
+      const prevValue = value || 0;
+      const computedValue = operations[operator](prevValue, nextValue);
 
-    if ()
-
+      this.setState({
+        value: computedValue,
+        displayValue: String(computedValue)
+      });
+    }
+    
     this.setState({
       waitingForOperand: true,
-      operator: operator
+      operator: nextOperator
     });
   }
 
