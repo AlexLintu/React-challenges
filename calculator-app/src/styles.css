@@ -22,11 +22,10 @@ html {
 }
 
 .calculator-display {
-    background-color: pink;
     grid-column: 1 / span 4;
     grid-row: 1;
     background-color: rgb(48, 47, 47);
-    color: white;
+    color: pink;
     font-size: 5em;
     font-weight: 100;
     text-align: end;
