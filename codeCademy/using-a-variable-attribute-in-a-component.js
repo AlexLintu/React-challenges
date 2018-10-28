@@ -21,5 +21,5 @@ class Owl extends React.Component {
 
 ReactDOM.render(
 	<Owl />,
-    document.getElementById('app')
+  document.getElementById('app')
 );
