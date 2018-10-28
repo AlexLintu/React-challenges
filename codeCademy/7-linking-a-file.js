@@ -16,10 +16,15 @@ class ProfilePage extends React.Component {
   }
 }
 
+ReactDOM.render(
+	<ProfilePage />,
+    document.getElementById('app')
+    );
+
 // NavBar.js file:
 import React from 'react';
 
-class NavBar extends React.Component {
+export class NavBar extends React.Component {
   render() {
     const pages = ['home', 'blog', 'pics', 'bio', 'art', 'shop', 'about', 'contact'];
     const navLinks = pages.map(page => {
