@@ -20,7 +20,7 @@ const friends = [
 // New component class starts here:
 class Friend extends React.Component {
   render() {
-    // First, some logic that must happen before rendering:
+    // Logic that must happen before rendering:
     const friend = friends[2];
     // Returning statement using that logic:
     return (
