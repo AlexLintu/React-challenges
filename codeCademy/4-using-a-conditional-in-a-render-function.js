@@ -21,7 +21,7 @@ ReactDOM.render(
 	document.getElementById('app')
 );
 
-// Second solytion:
+// Second solution:
 
 import React from 'react';
 import ReactDOM from 'react-dom';
