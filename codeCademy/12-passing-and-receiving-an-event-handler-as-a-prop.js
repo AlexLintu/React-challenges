@@ -14,7 +14,7 @@ class Talker extends React.Component {
   }
   
   render() {
-    return <Button talkMethod={this.talk} />; // Adding talk() method as a prop to Button component
+    return <Button talkMethod={this.talk} />; // Adding talk() method/event handler as a prop to Button component, talkMethod is our prop name/attribute name
   }
 }
 
