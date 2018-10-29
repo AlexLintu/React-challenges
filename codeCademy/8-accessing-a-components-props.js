@@ -16,6 +16,6 @@ class PropsDisplayer extends React.Component {
 }
 
 ReactDOM.render(
-	<PropsDisplayer myProp="Hello"/>,
+	<PropsDisplayer myProp="Hello"/>, // If the `prop` isn't a string, it needs to be wrapped into {}
 	document.getElementById('app')
 );
