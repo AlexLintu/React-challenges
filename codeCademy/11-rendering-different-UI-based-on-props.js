@@ -2,7 +2,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Greeting } from './Greeting' // import
+import { Greeting } from './Greeting';
 
 class App extends React.Component {
   render() {
@@ -11,9 +11,9 @@ class App extends React.Component {
         <h1>
           Hullo and, "Welcome to The Newzz," "On Line!"
         </h1>
-        <Greeting name="Alex"/> {/* Prop */}
+        <Greeting name="Alex" signedIn={true} />
         <article>
-          Latest newzz:  where is my phone?
+          Latest:  where is my phone?
         </article>
       </div>
     );
@@ -28,9 +28,14 @@ ReactDOM.render(
 // Greeting.js
 
 import React from 'react';
+import ReactDOM from 'react-dom';
 
-export class Greeting extends React.Component { // export
+export class Greeting extends React.Component {
   render() {
-    return <h1>Hi there, {this.props.name}!</h1>;
+  	if (this.props.signedIn == false) {
+  	  return <h1>GO AWAY</h1>;
+  	} else {
+  	  return <h1>Hi there, {this.props.name}!</h1>;
+  	}
   }
 }
