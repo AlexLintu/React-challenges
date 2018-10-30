@@ -12,7 +12,7 @@ class Toggle extends React.Component {
    }
   
   changeColor() {
-    const newColor = this.state.color == green ? yellow : green; // conditional logic for the color change
+    const newColor = this.state.color == green ? yellow : green; // Conditional logic for the color change
     this.setState({color: newColor})
   }
   
